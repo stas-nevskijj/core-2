@@ -21,10 +21,10 @@ public class Main {
 //        map.put(new Person("666"), 1);
 //        map.put(new Person("765"), 1);
 
-//        map.put(new NewPerson("test"), 1);
-//        map.put(new NewPerson("test1"), 1);
-//        map.put(new NewPerson("test2"), 1);
-//        map.put(new NewPerson("test3"), 1);
+        map.put(new NewPerson("test"), 1);
+        map.put(new NewPerson("test1"), 1);
+        map.put(new NewPerson("test2"), 1);
+        map.put(new NewPerson("test3"), 1);
         map.put(new NewPerson("1"), 1);
         map.put(new NewPerson("2"), 1);
         map.put(new NewPerson("3"), 1);
@@ -33,15 +33,20 @@ public class Main {
         map.put(new NewPerson("6"), 1);
         map.put(new NewPerson("7"), 1);
         map.put(new NewPerson("8"), 1);
+        System.out.println("Размер Мапы до расширения" + map.size());
+        for (Map.Entry<NewPerson, Integer> entry : map.entrySet()) {
+            System.out.println(entry.getKey() + " " + entry.getKey().hashCode() + " " + entry.getKey().hashCode() % 16);
+        }
         map.put(new NewPerson("9"), 1);
         System.out.println();
-        map.put(new NewPerson("10"), 1);
-        map.put(new NewPerson("11"), 1);
-        map.put(new NewPerson("12"), 1);
-        map.put(new NewPerson("13"), 1);
-        map.put(new NewPerson("14"), 1);
+//        map.put(new NewPerson("10"), 1);
+//        map.put(new NewPerson("11"), 1);
+//        map.put(new NewPerson("12"), 1);
+//        map.put(new NewPerson("13"), 1);
+//        map.put(new NewPerson("14"), 1);
 
-        System.out.println(map.size());
+        System.out.println(map.size()); //0, 1, 2,
+
     }
 }
 
@@ -83,9 +88,16 @@ class NewPerson {
     @Override
     public int hashCode() {
         if (name.equals("test") || name.equals("test1") || (name.equals("test2")) || (name.equals("test3"))) {
-            return 10;
+            return 2;
         }
 
         return Objects.hash(name);
+    }
+
+    @Override
+    public String toString() {
+        return "NewPerson{" +
+                "name='" + name + '\'' +
+                '}';
     }
 }
